@@ -1,0 +1,9 @@
+spec:
+  containers:
+    - name: jnlp
+      image: docker.artifactory.onbase.net/jenkins/inbound-agent:alpine
+    - name: ngweb-node
+      image: docker.artifactory.onbase.net/playwright/playwright:v1.38.1-focal
+      command:
+        - cat
+      tty: true

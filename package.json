@@ -1,0 +1,25 @@
+{
+  "name": "parabank-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:local": "npm run cleanalluredir && npx playwright test --config=./playwright.config.ts --reporter=line,allure-playwright",
+    "cleanalluredir": "cleandir ./allure-results",
+    "allure": "allure generate ./allure-results --clean && allure open allure-report"
+   
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "1.38.1",
+    "@types/node": "^22.10.5",
+    "allure-commandline": "^2.32.2",
+    "allure-playwright": "2.9.2"
+  },
+  "dependencies": {
+    "browserstack-local": "^1.5.1",
+    "clean-dir": "^1.0.3"
+  }
+}
