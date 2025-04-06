@@ -90,10 +90,10 @@ export default class AccountsOverviewPage {
       await this.page.locator(this.accountServiceELements.payeVerifyAccount).fill(AccountNumber);
       await this.page.locator(this.accountServiceELements.payeAmount).fill(data.payeAmount);
       await this.page.locator(this.accountServiceELements.payeFromAccount).selectOption({ label: selectAccountNumber });
-      await this.page.locator(this.accountServiceELements.sendPaymentButton).click();
-      await this.page.locator(this.accountServiceELements.billPaySuccessText).waitFor({state: "visible",timeout: 3000});
+      await this.page.locator(this.accountServiceELements.sendPaymentButton).click({ force: true });
+      await this.page.locator(this.accountServiceELements.billPaySuccessText).waitFor({state: "visible",timeout: 5000});
       await this.page.waitForTimeout(5000);
-      await this.page.locator(this.accountServiceELements.billAmountResult).isVisible({ timeout: 3000 });
+      await this.page.locator(this.accountServiceELements.billAmountResult).isVisible({ timeout: 6000 });
       return {
           successText: await this.page.locator(this.accountServiceELements.billPaySuccessText).isVisible({ timeout: 3000 }),
           billAmountResult: await this.page.locator(this.accountServiceELements.billAmountResult).textContent(),

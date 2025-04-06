@@ -16,33 +16,34 @@ let toCurrentAccountNumber: string;
 test.describe.serial('use the same page', () => {
   let username: string;
   let password: string;
-
-  test.beforeAll(async ({ browser }) => {
 /*this below line is created so it will reduce time to create new account*/
+  test.beforeAll(async ({ browser }) => {
     newContext = await browser.newContext({storageState: "./user.json"});
-/*-----------------------------------------------------------------------------------------*/
-
-/*testing indivisua test case then comment out this line*/
-      //  newContext = await browser.newContext();
-/*------------------------------------------------*/
-
-
     page = await newContext.newPage();
     await page.goto("https://parabank.parasoft.com/", 5000);
     loginPage = new LoginPage(page);
     accountServicePage = new AccointServicePage(page);
-
-/*testing indivisual test case then comment out this line*/
-
-    // username =  loginPage.generateParabankUsername();
-    // console.log("username::::::" + username);
-    // password = idpData.password;
-    // await loginPage.userRegistration(username, password);
-    // await loginPage.waitForRegisteredSuccessMessage();
    
 
    
   });
+/*------------------------------------------------------------------*/
+
+/* this below line is created when indivisual script needs to test*/
+
+  // test.beforeAll(async ({ browser }) => {
+  //   newContext = await browser.newContext();
+  //   newContext1 = await browser.newContext();
+  //   page = await newContext.newPage();
+  //   await page.goto("https://parabank.parasoft.com/", 5000);
+  //   loginPage = new LoginPage(page);
+  //   username =  loginPage.generateParabankUsername();
+  //   console.log("username::::::" + username);
+  //   password = idpData.password;
+  // await loginPage.userRegistration(username, password);
+    // await loginPage.waitForRegisteredSuccessMessage();
+   
+  // });
 
  
 
@@ -116,6 +117,24 @@ test.describe.serial('use the same page', () => {
     expect(await output.billAmountResult.replace(/[^0-9.]/g, '')).toEqual(data.payeAmount);
     expect(await output.billFromAccountResult).toEqual(fromSavingsAccountNumber);
    
+    
+
+
+});
+
+
+
+test('verify the transactions API call by the ammount ', async () => {
+
+  const url = "https://parabank.parasoft.com/parabank/services_proxy/bank/accounts/" + fromSavingsAccountNumber + "/transactions/amount/" + data.transferAmount + "?timeout=30000";
+
+ console.log("url::::::::::"+url);
+  await page.goto(url , { timeout: 5000 });
+  const response = await page.waitForResponse(url, { timeout: 15000 });
+  const responseBody = await response.json();
+  console.log("responseBody::::::"+responseBody);
+  expect(responseBody).toBeTruthy();
+  expect(responseBody.transactionType).toEqual("Debit");
 
 
 

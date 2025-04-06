@@ -10,7 +10,7 @@ const authTest2 = 'user.json';
 
 
 
-test.describe.serial('use the same page', () => {
+// test.describe.serial('use the same page', () => {
 
   
     test.beforeAll(async ({ browser }) => {
@@ -43,5 +43,5 @@ test.describe.serial('use the same page', () => {
       });
 
 
-});
+// });
 

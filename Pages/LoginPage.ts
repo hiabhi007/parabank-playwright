@@ -111,7 +111,7 @@ async validateLoginPage() {
 public generateParabankUsername(): string {
     const randomDigits = Math.floor(Math.random() * 100) // Generates number from 0–99
       .toString()
-      .padStart(2, '0'); // Ensures two digits, e.g., "07" instead of "7"
+      .padStart(3, '0'); // Ensures two digits, e.g., "07" instead of "7"
     return `parabank-${randomDigits}`;
   }
 
