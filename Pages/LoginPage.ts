@@ -14,36 +14,7 @@ export default class LoginPage {
 
 
     public loginPageElements = {
-        loginId: "//div[@class=\'form-group\']/button[1]",  //"button[value='login']",
-        logintext: "//*[text()=\'Login\']",
-        _idpUserName: "#Username",
-        _idpPassword: "#Password",
-        _goToInvoicePage: "#all-pending-link",
-
-        _goToInvoice: "//igx-expandable-grid-cell[@title=\'Test2\']",
-
-        _selectApproveButton: "#approve-btn",
-        _selectRejectButtonFromPopUp: "#action-btn",
-
-        selectRejectButton: "//span[text()=\'Reject\']",
-        _selectApproveButtonFromPopUP: "(//span[text()=\'Approve\'])[2]",
-
-
-        _approvedToastMessage: "//span[text()=\'Invoice Approved\']",
-        _RjectToastMessage: "//span[text()=\'Invoice Rejected\']",
-
-        loginUserNameHeader: "//span[text()=\'TEST1\']",
-
-        usepanelExpand: "//mat-icon[text()=\'chevron_down\']",
-        logoutButton: "//span[text()=\'Log Out\']",
-        _logoutRedirect: "//div[@class=\'page-header logged-out\']//a[1]",
-        _logoutSignBtn: "//button[@color=\'primary\']//span[1]",
-        _invoices_number_coloum : "//*[starts-with(@class,\'ng-star-inserted\')]//igx-expandable-grid-cell/div[2]",
-        checkTest2 : "//*[@title=\'Test2]\']/ancestor::igx-grid-row/following::div[1]//*[text()=\'Invoice Journey\']",
-        checkTest1 : "//*[@title=\'Test1]\']/ancestor::igx-grid-row/following::div[1]//*[text()=\'Invoice Journey\']",
-
-
-        //paraBankHyperText: "//*[@title='ParaBank']",
+       //paraBankHyperText: "//*[@title='ParaBank']",
         paraBankHyperText: "//*[@id='topPanel']//img[@class='logo']",
         userName: "//input[@name='username']",
         loginButton: "//input[@value='Log In']",
